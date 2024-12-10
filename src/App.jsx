@@ -3,24 +3,25 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const[display,setDisplay]=useState('')
-  const handleClick=(value)=>{
-    setDisplay(display+value)
+  const [display, setDisplay] = useState('')
+  const handleClick = (value) => {
+    setDisplay(display + value)
 
 
   }
-  const clearAll=()=>{
+  const clearAll = () => {
     setDisplay('')
   }
-  const clear=()=>{
-    setDisplay(display.slice(0,-1))
+  const clear = () => {
+    setDisplay(display.slice(0, -1))
   }
-  const execute=()=>{
-    
-    try { 
-      
-      setDisplay(eval(display).toString()) } 
-    catch{
+  const execute = () => {
+
+    try {
+
+      setDisplay(eval(display).toString())
+    }
+    catch {
       setDisplay('Error')
     }
   }
@@ -28,12 +29,14 @@ function App() {
   return (
     <>
       <div className='bg-black w-full h-[100vh] flex justify-center items-center'>
-        <div className="cal-body h-fit w-[350px] border-2 border-zinc-300 p-4 rounded-lg">
+        <div className=" h-fit w-fit border-2 border-zinc-300 p-4 rounded-lg">
           <div className='grid
-grid-cols-1 justify-items-center text-center'><input type="text" placeholder='Enter Number ' className='px-16 py-3 rounded-md' value={display} readOnly/></div>
-          <div className='grid grid-cols-4 gap-2 items-start mt-5'>
-            <button onClick={()=>clearAll()} className='text-blue-500'> AC</button>
-           
+grid-cols-1 justify-items-center items-center p-4'>
+  <input type="text" placeholder='Enter Number ' className='px-16 py-3 rounded-md' value={display} readOnly /></div>
+          <div className='grid grid-cols-4 gap-4 items-start mt-5'>
+
+            <button onClick={() => clearAll()} className='text-blue-500'> AC</button>
+
             <button onClick={() => handleClick('/')} className='text-blue-500'>/</button>
             <button onClick={() => clear()} className='text-blue-500'><i class="fa-solid fa-delete-left"></i></button>
             <button onClick={() => handleClick('*')} className='text-blue-500'>*</button>
@@ -50,8 +53,6 @@ grid-cols-1 justify-items-center text-center'><input type="text" placeholder='En
             <button onClick={() => handleClick('3')}>3</button>
             <button onClick={() => handleClick('.')} className='text-blue-500'>.</button>
             <button onClick={() => handleClick('0')}>0</button>
- 
-      
             <button onClick={() => execute()} className='col-span-3 bg-blue-700'>=</button>
 
 
